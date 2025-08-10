@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Warhammer Community News</title>
+  <link href="https://warcomfeed.link/atom.xml" rel="self" />
+  <link href="https://www.warhammer-community.com/" />
+  <updated>{{ "" | date("%Y-%m-%dT%H:%M:%S%z") }}</updated>
+  <id>https://warcomfeed.link/atom.xml</id>
+  <subtitle>Latest news and articles from Warhammer Community</subtitle>
+  
+  {% for item in warcom -%}
+  <entry>
+    <title type="html"><![CDATA[{{ item.title }}]]></title>
+    <link href="https://www.warhammer-community.com{{ item.uri }}" />
+    <updated>{{ item.date | date("%Y-%m-%dT%H:%M:%S%z") }}</updated>
+    <id>https://www.warhammer-community.com{{ item.uri }}</id>
+    <summary type="html"><![CDATA[{{ item.excerpt }}]]></summary>
+    {% if item.topics.length > 0 -%}
+    <category term="{{ item.topics[0].title }}" />
+    {%- endif %}
+    <author>
+      <name>Warhammer Community</name>
+    </author>
+  </entry>
+  {% endfor -%}
+</feed>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} | WarCom Feed</title>
+    <meta name="description" content="{{ description or 'RSS, Atom, and JSON feeds for Warhammer Community news' }}">
+    
+    <!-- Feed discovery links -->
+    <link rel="alternate" type="application/rss+xml" title="WarCom RSS Feed" href="/rss.xml">
+    <link rel="alternate" type="application/atom+xml" title="WarCom Atom Feed" href="/atom.xml">
+    <link rel="alternate" type="application/feed+json" title="WarCom JSON Feed" href="/feed.json">
+    
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            color: #333;
+        }
+        
+        h1 {
+            color: #1a472a;
+            border-bottom: 3px solid #d4af37;
+            padding-bottom: 0.5rem;
+        }
+        
+        .feeds {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .feed-card {
+            border: 2px solid #d4af37;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            background: #f9f9f9;
+        }
+        
+        .feed-card h3 {
+            margin-top: 0;
+            color: #1a472a;
+        }
+        
+        .feed-link {
+            display: inline-block;
+            background: #1a472a;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+        
+        .feed-link:hover {
+            background: #2a5f3a;
+        }
+        
+        .recent-articles {
+            margin-top: 3rem;
+        }
+        
+        .article {
+            border-bottom: 1px solid #eee;
+            padding: 1rem 0;
+        }
+        
+        .article:last-child {
+            border-bottom: none;
+        }
+        
+        .article h4 {
+            margin: 0 0 0.5rem 0;
+        }
+        
+        .article a {
+            color: #1a472a;
+            text-decoration: none;
+        }
+        
+        .article a:hover {
+            text-decoration: underline;
+        }
+        
+        .article-meta {
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    {{ content | safe }}
+</body>
+</html>

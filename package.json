@@ -1,0 +1,28 @@
+{
+  "name": "warcomfeed.link",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "dev": "eleventy --serve --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcleodchris/warcomfeed.link.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcleodchris/warcomfeed.link/issues"
+  },
+  "homepage": "https://github.com/mcleodchris/warcomfeed.link#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.2",
+    "@11ty/eleventy-fetch": "5.1.0"
+  }
+}

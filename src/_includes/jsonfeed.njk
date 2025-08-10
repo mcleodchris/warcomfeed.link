@@ -1,0 +1,21 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Warhammer Community News",
+  "home_page_url": "https://www.warhammer-community.com/",
+  "feed_url": "https://warcomfeed.link/feed.json",
+  "description": "Latest news and articles from Warhammer Community",
+  "language": "en-GB",
+  "items": [
+    {% for item in warcom -%}
+    {
+      "id": "https://www.warhammer-community.com{{ item.uri }}",
+      "url": "https://www.warhammer-community.com{{ item.uri }}",
+      "title": {{ item.title | dump | safe }},
+      "summary": {{ item.excerpt | dump | safe }},
+      "date_published": "{{ item.date | date('%Y-%m-%dT%H:%M:%S%z') }}"{% if item.image %},
+      "image": "https://assets.warhammer-community.com/{{ item.image.path }}"{% endif %}{% if item.topics.length > 0 %},
+      "tags": [{{ item.topics[0].title | dump | safe }}]{% endif %}
+    }{% if not loop.last %},{% endif %}
+    {% endfor -%}
+  ]
+}
