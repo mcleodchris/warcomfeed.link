@@ -12,18 +12,40 @@
     <link rel="alternate" type="application/feed+json" title="WarCom JSON Feed" href="/feed.json">
     
     <style>
+        :root {
+            color-scheme: light dark;
+            --hue: 182.85; /* Subtle teal hue */
+            --theme-color: oklch(37% 0.3 var(--hue));
+            
+            /* Common color mix patterns */
+            --text-accent: color-mix(in oklab, CanvasText 60%, var(--theme-color));
+            --text-subtle: color-mix(in oklab, CanvasText 70%, Canvas 30%);
+            --text-link: color-mix(in oklab, CanvasText 50%, var(--theme-color) 50%);
+            --text-link-hover: color-mix(in oklab, CanvasText 30%, var(--theme-color) 70%);
+            
+            --bg-subtle: color-mix(in oklab, Canvas 85%, var(--theme-color) 15%);
+            --bg-button: color-mix(in oklab, var(--theme-color) 85%, CanvasText 15%);
+            --bg-button-hover: color-mix(in oklab, var(--theme-color) 75%, CanvasText 25%);
+            --bg-button-text: color-mix(in oklab, Canvas 90%, var(--theme-color) 10%);
+            
+            --border-light: color-mix(in oklab, Canvas 70%, CanvasText 30%);
+            --border-accent: color-mix(in oklab, var(--theme-color) 70%, CanvasText 30%);
+            --border-strong: color-mix(in oklab, var(--theme-color) 80%, CanvasText 20%);
+        }
+
         body {
             font-family: system-ui, -apple-system, sans-serif;
             line-height: 1.6;
             max-width: 800px;
             margin: 0 auto;
             padding: 2rem;
-            color: #333;
+            color: CanvasText;
+            background-color: color-mix(in oklab, Canvas 90%, var(--theme-color));
         }
         
         h1 {
-            color: #1a472a;
-            border-bottom: 3px solid #d4af37;
+            color: var(--text-accent);
+            border-bottom: 3px solid var(--border-strong);
             padding-bottom: 0.5rem;
         }
         
@@ -35,30 +57,32 @@
         }
         
         .feed-card {
-            border: 2px solid #d4af37;
+            border: 2px solid var(--border-accent);
             border-radius: 8px;
             padding: 1.5rem;
             text-align: center;
-            background: #f9f9f9;
+            background: var(--bg-subtle);
         }
         
         .feed-card h3 {
             margin-top: 0;
-            color: #1a472a;
+            color: var(--text-accent);
         }
         
         .feed-link {
             display: inline-block;
-            background: #1a472a;
-            color: white;
+            background: var(--bg-button);
+            color: var(--bg-button-text);
             padding: 0.75rem 1.5rem;
             text-decoration: none;
             border-radius: 4px;
             margin-top: 1rem;
+            transition: all 0.2s ease;
         }
         
         .feed-link:hover {
-            background: #2a5f3a;
+            background: var(--bg-button-hover);
+            transform: translateY(-1px);
         }
         
         .recent-articles {
@@ -66,7 +90,7 @@
         }
         
         .article {
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid var(--border-light);
             padding: 1rem 0;
         }
         
@@ -79,16 +103,18 @@
         }
         
         .article a {
-            color: #1a472a;
+            color: var(--text-link);
             text-decoration: none;
+            transition: color 0.2s ease;
         }
         
         .article a:hover {
+            color: var(--text-link-hover);
             text-decoration: underline;
         }
         
         .article-meta {
-            color: #666;
+            color: var(--text-subtle);
             font-size: 0.9em;
         }
     </style>
